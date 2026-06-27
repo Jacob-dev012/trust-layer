@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmission Received | Trust Layer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Instant local layout overrides for the thank you interactive state */
+    .thank-you-canvas {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-xl) var(--space-m);
+    }
+    
+    .status-radar {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: var(--space-l);
+    }
+
+    .radar-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--accent-primary);
+      border-radius: 50%;
+      opacity: 0;
+      animation: radarPulse 2.5s infinite ease-out;
+    }
+
+    .radar-circle:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .radar-circle:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    .radar-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--accent-primary);
+    }
+
+    .interactive-terminal {
+      background: #09090b;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-premium);
+      padding: var(--space-m) var(--space-l);
+      max-width: 500px;
+      width: 100%;
+      font-family: monospace;
+      text-align: left;
+      margin: var(--space-l) 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .terminal-header {
+      display: flex;
+      gap: 6px;
+      margin-bottom: var(--space-s);
+      border-bottom: 1px solid #27272a;
+      padding-bottom: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #27272a;
+    }
+    .dot.active { background: var(--accent-primary); }
+
+    .terminal-row {
+      color: #a1a1aa;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 4px 0;
+    }
+
+    @keyframes radarPulse {
+      0% { transform: scale(0.2); opacity: 0.8; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="premium-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-zone"><div class="logo-icon"></div>Trust Layer</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Overview</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="services.html" class="nav-item">Services</a>
+        <a href="methodology.html" class="nav-item">Methodology</a>
+        <a href="reports.html" class="nav-item">Sample Analytics</a>
+      </nav>
+      <div><a href="contact.html" class="nav-cta">Request Assessment</a></div>
+    </div>
+  </header>
+
+  <main class="thank-you-canvas">
+    <!-- Animated Interactive Radar Pulse -->
+    <div class="status-radar">
+      <div class="radar-circle"></div>
+      <div class="radar-circle"></div>
+      <div class="radar-circle"></div>
+      <div class="radar-core"></div>
+    </div>
+
+    <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Transmission Secure.</h2>
+    <p style="color: var(--text-secondary); max-width: 600px;">Your organizational entry profile has bypassed validation constraints and successfully route-cached directly to our triage queue.</p>
+
+    <!-- Simulated Intake Logs (Updates via JS on Load) -->
+    <div class="interactive-terminal">
+      <div class="terminal-header">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="terminal-row" id="log-1">> Initializing TLS handshake...</div>
+      <div class="terminal-row" id="log-2" style="display:none">> Packet verification: [SUCCESS]</div>
+      <div class="terminal-row" id="log-3" style="display:none">> Profiling operational scope matrix...</div>
+      <div class="terminal-row" id="log-4" style="display:none">> Routing directly to founder workspace dashboard...</div>
+      <div class="terminal-row" id="log-5" style="display:none" style="color: var(--accent-primary);">> Status: Awaiting human triage (ETA &lt; 24h)</div>
+    </div>
+
+    <a href="index.html" class="btn-secondary" style="margin-top: var(--space-m);">Return to Framework Overview</a>
+  </main>
+
+  <!-- Interactive Terminal Simulator Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const showLog = (id, delay) => {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if(el) el.style.display = "block";
+        }, delay);
+      };
+
+      // Stagger outputs to mimic real-time processing mechanics
+      showLog("log-2", 800);
+      showLog("log-3", 1600);
+      showLog("log-4", 2400);
+      showLog("log-5", 3200);
+    });
+  </script>
+</body>
+</html>
