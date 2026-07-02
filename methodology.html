@@ -7,28 +7,36 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <header class="premium-header">
     <div class="header-container">
-      <a href="index.html" class="logo-zone"><div class="logo-icon"></div>Trust Layer</a>
-      <nav class="nav-links">
-        <a href="index.html" class="nav-item">Overview</a>
-        <a href="about.html" class="nav-item">About</a>
-        <a href="services.html" class="nav-item">Services</a>
-        <a href="methodology.html" class="nav-item active">Methodology</a>
-        <a href="reports.html" class="nav-item">Sample Analytics</a>
+      <a href="index.html" class="logo-zone">
+        <div class="logo-icon"></div>
+        <span>Trust Layer</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-item">Overview</a></li>
+          <li><a href="about.html" class="nav-item">About</a></li>
+          <li><a href="services.html" class="nav-item">Services</a></li>
+          <li><a href="methodology.html" class="nav-item active">Methodology</a></li>
+          <li><a href="reports.html" class="nav-item">Sample Analytics</a></li>
+          <li><a href="contact.html" class="nav-cta">Request Assessment</a></li>
+        </ul>
       </nav>
-      <div><a href="contact.html" class="nav-cta">Request Assessment</a></div>
     </div>
   </header>
 
   <main class="section-padding">
     <div class="content-container">
+      
       <div class="center-header">
         <h2>The Assessment Blueprint</h2>
         <p>A clean, transparent, and repeatable process structure mapping every step of your defensive assessment cycle.</p>
       </div>
 
       <div class="timeline-container">
+        
         <div class="timeline-event-node">
           <div class="timeline-step-badge">01</div>
           <div class="timeline-payload-card">
@@ -36,6 +44,7 @@
             <p>We map out your business assets, discover all operating environments, and set legal test parameters to ensure absolute protection of active workflows.</p>
           </div>
         </div>
+
         <div class="timeline-event-node">
           <div class="timeline-step-badge">02</div>
           <div class="timeline-payload-card">
@@ -43,6 +52,7 @@
             <p>Our analysts conduct passive and active data harvesting against targeted systems, building an intricate architecture map from an outside perspective.</p>
           </div>
         </div>
+
         <div class="timeline-event-node">
           <div class="timeline-step-badge">03</div>
           <div class="timeline-payload-card">
@@ -50,8 +60,128 @@
             <p>Deep-dive identification and testing of live system assets to locate weaknesses and misconfigurations across all target surfaces.</p>
           </div>
         </div>
+
       </div>
+
+      <div class="case-study-card">
+        <div class="case-study-header">
+          <span class="case-tag">Critical Security Assessment Case Study</span>
+          <h3>Critical Security Assessment of an On-Premise EMR System</h3>
+          <p class="case-teaser">
+            A real-world black-box external and physical security assessment on an enterprise infrastructure platform to identify vulnerabilities risking sensitive Patient Health Information (PHI).
+          </p>
+        </div>
+
+        <div class="case-study-dropdown">
+          <div class="dropdown-inner-content">
+            
+            <div class="meta-info-grid">
+              <div>
+                <strong>Target Infrastructure:</strong>
+                <p>On-Premise Enterprise Electronic Medical Record (EMR) Facility Server.</p>
+              </div>
+              <div>
+                <strong>The Objective:</strong>
+                <p>Conduct a black-box external and physical security assessment to identify vulnerabilities risking sensitive Patient Health Information (PHI).</p>
+              </div>
+            </div>
+
+            <hr class="case-divider">
+
+            <h4>Key Discoveries & Impact</h4>
+            <ul class="discoveries-list">
+              <li>
+                <strong>Broken Authentication & Uncapped Brute-Force:</strong> 
+                The system authenticated users even when username capitalization was incorrect, exposing a flawed backend validation logic. Because password attempts were infinite (zero rate-limiting), the platform was entirely vulnerable to high-speed, automated brute-force attacks.
+              </li>
+              <li>
+                <strong>Cryptographic & Session Persistence Exploits:</strong> 
+                With brief physical machine access, testers easily exported client-side authentication certificates directly from the browser. These certificates lacked machine-binding, allowing attackers to clone them and gain persistent remote access from any external device globally.
+              </li>
+              <li>
+                <strong>Absent Audit Logging:</strong> 
+                The system failed to log remote authentication events on the central server. User sessions were only visible via local machine states, completely blinding the organization's security team to active network intrusions.
+              </li>
+            </ul>
+
+            <hr class="case-divider">
+
+            <h4>The Remediation (Our Fix)</h4>
+            <ul class="remediation-list">
+              <li>
+                <strong>Brute-Force & Access Hardening:</strong> 
+                Enforced strict, case-sensitive username validation and implemented rate-limiting with account lockouts after 5 failed login attempts.
+              </li>
+              <li>
+                <strong>Cryptographic Hardening:</strong> 
+                Reconfigured certificate deployment to utilize non-exportable private keys tied to specific workstation hardware security modules (TPM).
+              </li>
+              <li>
+                <strong>Centralized Logging:</strong> 
+                Integrated comprehensive logging to track all authentication traffic instantly across the entire on-premise network infrastructure.
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <button class="read-more-toggle" onclick="toggleCaseStudy()">
+          <span class="btn-text">Read More</span>
+          <span class="btn-icon">↓</span>
+        </button>
+      </div>
+
     </div>
   </main>
+
+  <footer class="premium-footer">
+    <div class="footer-columns-grid">
+      <div class="footer-brand">
+        <h4>Trust Layer</h4>
+        <p>Defending enterprise ecosystems through sophisticated adversarial simulations and strict structural remediation hardening.</p>
+      </div>
+      <div class="footer-column-stack">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">External Assessment</a></li>
+          <li><a href="services.html">Physical Security</a></li>
+          <li><a href="services.html">Remediation Testing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column-stack">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Our Team</a></li>
+          <li><a href="methodology.html">Our Blueprint</a></li>
+        </ul>
+      </div>
+      <div class="footer-column-stack">
+        <h5>Engage</h5>
+        <ul>
+          <li><a href="contact.html">Request Assessment</a></li>
+          <li><a href="reports.html">Sample Analytics</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom-baseline">
+      <p>&copy; 2026 Trust Layer. All rights reserved.</p>
+      <p>Confidentiality Assured &nbsp;&middot;&nbsp; Secure Architecture Operations</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCaseStudy() {
+      const card = document.querySelector('.case-study-card');
+      const btnText = document.querySelector('.read-more-toggle .btn-text');
+      
+      card.classList.toggle('is-open');
+      
+      if (card.classList.contains('is-open')) {
+        btnText.textContent = 'Collapse Case Study';
+      } else {
+        btnText.textContent = 'Read More';
+      }
+    }
+  </script>
 </body>
 </html>
